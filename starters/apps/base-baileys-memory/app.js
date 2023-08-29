@@ -67,11 +67,16 @@ const main = async () => {
     const adapterFlow = createFlow([flowPrincipal])
     const adapterProvider = createProvider(BaileysProvider)
 
-    createBot({
+    createBot(
+    {
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
-    })
+    },
+    {
+        blackList['2441250194'],
+    }
+    )
 
     QRPortalWeb()
 }
