@@ -103,7 +103,8 @@ class CoreClass {
         let msgToSend = []
         let endFlowFlag = false
         let fallBackFlag = false
-        if (this.generalArgs.blackList.includes(from)) return
+/** ELIMINACION DE RETURN DE BLACKLIST, INTENTO DE WHL**/
+        if (this.generalArgs.blackList.includes(from)) 
         if (!body) return
 
         let prevMsg = await this.databaseClass.getPrevByNumber(from)
@@ -366,6 +367,8 @@ class CoreClass {
             }
         }
         return sendFlow(msgToSend, from)
+        /** CNCELACION DE HANDLE MESSAGE**/
+        return
     }
 
     /**
